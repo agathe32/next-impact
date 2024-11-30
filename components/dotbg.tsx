@@ -1,4 +1,4 @@
-"use client"
+
 interface DotPatternBackgroundProps {
     dotSize?: number
     dotColor?: string
