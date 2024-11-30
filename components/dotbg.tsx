@@ -12,7 +12,7 @@ interface DotPatternBackgroundProps {
   }
   
   export const BackgroundDots: React.FC<DotPatternBackgroundProps> = ({
-    dotSize = .5,
+    dotSize = 0.5,
     dotColor = '#f2f2f2',
     backgroundColor = 'transparent',
     gap = 10,
