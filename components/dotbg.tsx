@@ -12,10 +12,10 @@ interface DotPatternBackgroundProps {
   }
   
   export const BackgroundDots: React.FC<DotPatternBackgroundProps> = ({
-    dotSize = 1.2,
-    dotColor = '#fb3a5d',
+    dotSize = .5,
+    dotColor = '#f2f2f2',
     backgroundColor = 'transparent',
-    gap = 15,
+    gap = 10,
     className,
     fade = true,
     style,
@@ -40,7 +40,7 @@ interface DotPatternBackgroundProps {
   
     return (
       <div
-        className={`absolute inset-0 h-full w-full ${className}`}
+        className={`absolute inset-0 h-24 w-full ${className}`}
         style={backgroundStyle}
         {...props}
       />
