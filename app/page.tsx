@@ -32,8 +32,7 @@ const ExampleJsx = () => {
       {/* Vercel Clone Starter */}
       <a
         className="h-16 block"
-        href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2F9d8dev%2Fnext-wp&env=WORDPRESS_URL,WORDPRESS_HOSTNAME&envDescription=Add%20WordPress%20URL%20with%20Rest%20API%20enabled%20(ie.%20https%3A%2F%2Fwp.example.com)%20abd%20the%20hostname%20for%20Image%20rendering%20in%20Next%20JS%20(ie.%20wp.example.com)&project-name=next-wp&repository-name=next-wp&demo-title=Next%20JS%20and%20WordPress%20Starter&demo-url=https%3A%2F%2Fwp.9d8.dev"
-      >
+        href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2F9d8dev%2Fnext-wp&env=WORDPRESS_URL,WORDPRESS_HOSTNAME&envDescription=Add%20WordPress%20URL%20with%20Rest%20API%20enabled%20(ie.%20https%3A%2F%2Fwp.example.com)%20abd%20the%20hostname%20for%20Image%20rendering%20in%20Next%20JS%20(ie.%20wp.example.com)&project-name=next-wp&repository-name=next-wp&demo-title=Next%20JS%20and%20WordPress%20Starter&demo-url=https%3A%2F%2Fwp.9d8.dev">
         {/* eslint-disable-next-line */}
         <img
           className="not-prose my-4"
@@ -54,8 +53,7 @@ const ExampleJsx = () => {
       <div className="grid md:grid-cols-3 gap-4 mt-6 not-prose">
         <Link
           className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="/posts"
-        >
+          href="/posts">
           <Pen size={32} />
           <span>
             Posts{" "}
@@ -66,8 +64,7 @@ const ExampleJsx = () => {
         </Link>
         <Link
           className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="/pages"
-        >
+          href="/pages">
           <File size={32} />
           <span>
             Pages{" "}
@@ -78,8 +75,7 @@ const ExampleJsx = () => {
         </Link>
         <Link
           className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="/posts/authors"
-        >
+          href="/posts/authors">
           <User size={32} />
           <span>
             Authors{" "}
@@ -90,20 +86,17 @@ const ExampleJsx = () => {
         </Link>
         <Link
           className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="/posts/tags"
-        >
+          href="/projet">
           <Tag size={32} />
           <span>
-            Tags{" "}
-            <span className="block text-sm text-muted-foreground">
-              Content by tags from your WordPress
+            Projets{" "}
+            <span className="block text-sm text-muted-foreground"></span>
+            Projects from agat.dev 
             </span>
-          </span>
         </Link>
         <Link
           className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="/posts/categories"
-        >
+          href="/posts/categories">
           <Boxes size={32} />
           <span>
             Categories{" "}
@@ -114,8 +107,7 @@ const ExampleJsx = () => {
         </Link>
         <a
           className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="https://github.com/9d8dev/next-wp"
-        >
+          href="https://github.com/9d8dev/next-wp">
           <Folder size={32} />
           <span>
             Documentation{" "}

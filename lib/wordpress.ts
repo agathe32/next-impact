@@ -2,10 +2,11 @@
 // Used to fetch data from a WordPress site using the WordPress REST API
 // Types are imported from `wp.d.ts`
 
-import querystring from 'query-string'
+import querystring from "query-string";
 
 import {
   Post,
+  Projet,
   Category,
   Tag,
   Page,
@@ -18,9 +19,9 @@ import {
 const baseUrl = process.env.WORDPRESS_URL;
 
 function getUrl(path: string, query?: Record<string, any>) {
-    const params = query ? querystring.stringify(query) : null
-  
-    return `${baseUrl}${path}${params ? `?${params}` : ""}`
+  const params = query ? querystring.stringify(query) : null;
+
+  return `${baseUrl}${path}${params ? `?${params}` : ""}`;
 }
 
 // WordPress Functions
@@ -29,8 +30,12 @@ export async function getAllPosts(filterParams?: {
   author?: string;
   tag?: string;
   category?: string;
-}): Promise<Post[]> {  
-  const url = getUrl("/wp-json/wp/v2/posts", { author: filterParams?.author, tags: filterParams?.tag, categories: filterParams?.category });
+}): Promise<Post[]> {
+  const url = getUrl("/wp-json/wp/v2/posts", {
+    author: filterParams?.author,
+    tags: filterParams?.tag,
+    categories: filterParams?.category,
+  });
   const response = await fetch(url);
   const posts: Post[] = await response.json();
   return posts;
@@ -49,6 +54,38 @@ export async function getPostBySlug(slug: string): Promise<Post> {
   const post: Post[] = await response.json();
   return post[0];
 }
+
+/* Ajouts projets */
+export async function getAllProjets(filterParams?: {
+  author?: string;
+  tag?: string;
+  category?: string;
+}): Promise<Projet[]> {
+  const url = getUrl("/wp-json/wp/v2/projet", {
+    author: filterParams?.author,
+    tags: filterParams?.tag,
+    categories: filterParams?.category,
+  });
+  const response = await fetch(url);
+  const projets: Projet[] = await response.json();
+  return projets;
+}
+
+export async function getProjetById(id: number): Promise<Projet> {
+  const url = getUrl(`/wp-json/wp/v2/projet/${id}`);
+  const response = await fetch(url);
+  const projet: Projet = await response.json();
+  return projet;
+}
+
+export async function getProjetBySlug(slug: string): Promise<Projet> {
+  const url = getUrl("/wp-json/wp/v2/projet", { slug });
+  const response = await fetch(url);
+  const projet: Projet[] = await response.json();
+  return projet[0];
+}
+
+/* end ajout projet */
 
 export async function getAllCategories(): Promise<Category[]> {
   const url = getUrl("/wp-json/wp/v2/categories");
@@ -72,21 +109,39 @@ export async function getCategoryBySlug(slug: string): Promise<Category> {
 }
 
 export async function getPostsByCategory(categoryId: number): Promise<Post[]> {
-  const url = getUrl("/wp-json/wp/v2/posts", { categories:  categoryId });
+  const url = getUrl("/wp-json/wp/v2/posts", { categories: categoryId });
   const response = await fetch(url);
   const posts: Post[] = await response.json();
   return posts;
 }
 
 export async function getPostsByTag(tagId: number): Promise<Post[]> {
-  const url = getUrl("/wp-json/wp/v2/posts", { tags:  tagId });
+  const url = getUrl("/wp-json/wp/v2/posts", { tags: tagId });
   const response = await fetch(url);
   const posts: Post[] = await response.json();
   return posts;
 }
 
+/* ajout projets */
+
+export async function getProjetByCategory(categoryId: number): Promise<Projet[]> {
+  const url = getUrl("/wp-json/wp/v2/projets", { categories: categoryId });
+  const response = await fetch(url);
+  const projets: Projet[] = await response.json();
+  return projets;
+}
+
+export async function getProjetsByTag(tagId: number): Promise<Projet[]> {
+  const url = getUrl("/wp-json/wp/v2/projets", { tags: tagId });
+  const response = await fetch(url);
+  const projets: Projet[] = await response.json();
+  return projets;
+}
+
+/* end ajout projets */
+
 export async function getTagsByPost(postId: number): Promise<Tag[]> {
-  const url = getUrl("/wp-json/wp/v2/tags", { post:  postId });
+  const url = getUrl("/wp-json/wp/v2/tags", { post: postId });
   const response = await fetch(url);
   const tags: Tag[] = await response.json();
   return tags;
