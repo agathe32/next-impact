@@ -45,7 +45,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        className={cn("min-h-screen font-sans antialiased", fontSans.variable)}
+        className={cn("min-h-full font-sans antialiased", fontSans.variable)}
       >
         <DotPattern />
         <ThemeProvider
