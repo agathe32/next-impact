@@ -22,7 +22,7 @@ export default function Home() {
 // This is just some example JS to demonstrate automatic styling from brijr/craft
 const ExampleJsx = () => {
   return (
-    <article className="prose-m-none">
+    <article className="prose-m-none p-4 bg-white">
       <h1>
         <Balancer>
           Hello World, welcome to the Next.js and WordPress Starter by{" "}
