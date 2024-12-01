@@ -1,6 +1,8 @@
 // Craft Imports
 import { Section, Container } from "@/components/craft";
 import Balancer from "react-wrap-balancer";
+import { GradualSpacing } from "@/components/ui/gradual-spacing";
+
 
 // Components
 import Link from "next/link";
@@ -28,6 +30,12 @@ const ExampleJsx = () => {
           Hello World, welcome to the Next.js and WordPress Starter by{" "}
           <a href="https://9d8.dev">9d8</a>.
         </Balancer>
+      </h1>
+      <h1>
+      <GradualSpacing
+      className="font-display text-center text-4xl font-bold -tracking-widest  text-black dark:text-white md:text-7xl md:leading-[5rem]"
+      text="Gradual Spacing"
+    />
       </h1>
       {/* Vercel Clone Starter */}
       <a
