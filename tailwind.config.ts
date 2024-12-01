@@ -23,6 +23,11 @@ const config = {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
       colors: {
+        agatlightpink: '#F2798F',
+        agatmediumpink: '#F2385A',
+        agatdarkpink: '#BF1B39',
+        agatgray: '#F2F2F2',
+        agatblack: '#0D0D0D',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
