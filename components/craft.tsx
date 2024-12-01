@@ -3,6 +3,7 @@ import * as React from "react";
 // cn util
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { DotPattern } from "@/components/ui/dot-pattern";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -57,6 +58,7 @@ const Main = ({ children, className, id }: MainProps) => {
       )}
       id={id}
     >
+     <DotPattern/> 
       {children}
     </main>
   );
