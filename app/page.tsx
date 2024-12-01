@@ -7,6 +7,7 @@ import Link from "next/link";
 
 // Icons
 import { File, Pen, Tag, Boxes, User, Folder } from "lucide-react";
+import { HoverEffect } from "@/components/ui/card-hover-effects";
 
 // This page is using the craft.tsx component and design system
 export default function Home() {
@@ -51,7 +52,17 @@ const ExampleJsx = () => {
         <code>lib/WordPress.d.ts</code>. Questions? Email 9d8dev@gmail.com
       </p>
       <div className="grid md:grid-cols-3 gap-4 mt-6 not-prose">
-
+        <HoverEffect
+          items={[
+            {
+              title: "Example Title",
+              description: "Example Description",
+              link: "/example-link",
+            },
+          ]}
+        >
+          
+        </HoverEffect>
         <Link
           className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
           href="/posts">
