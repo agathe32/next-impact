@@ -1,10 +1,20 @@
 "use client";
 
-import { ReactNode, useState } from "react";
+import {ReactNode, useState, useEffect} from 'react'
+
+export default function Loading() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+      setMounted(true)
+  }, [])
+  
+  return mounted && <div>Run on client only</div>
+ }
+
+// import { ReactNode, useState } from "react";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const BentoGrid = ({
@@ -30,18 +40,14 @@ const BentoCard = ({
   name,
   className,
   background,
-  Icon,
   description,
   href,
-  cta,
 }: {
   name: string;
   className: string;
   background: ReactNode;
-  Icon: any;
   description: string;
   href: string;
-  cta: string;
 }) => (
   <div
     key={name}
@@ -55,8 +61,7 @@ const BentoCard = ({
     )}
   >
     <div>{background}</div>
-    <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
-      <Icon className="h-12 w-12 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out group-hover:scale-75" />
+    <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300">
       <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300">
         {name}
       </h3>
@@ -65,20 +70,15 @@ const BentoCard = ({
 
     <div
       className={cn(
-        "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100",
+        "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:opacity-100",
       )}
     >
-      <Button variant="ghost" asChild size="sm" className="pointer-events-auto">
-        <a href={href}>
-          {cta}
-        </a>
-      </Button>
     </div>
-    <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
+    <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300" />
   </div>
 );
 
-export const HoverEffect = ({
+export const HoverEffectBento = ({
     items,
     className,
   }: {
@@ -86,6 +86,8 @@ export const HoverEffect = ({
       title: string;
       description: string;
       link: string;
+      background: ReactNode;
+      classNameLink?: string;
     }[];
     className?: string;
   }) => {
@@ -94,45 +96,44 @@ export const HoverEffect = ({
     return (
       <div
         className={cn(
-          "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10",
+          "grid w-full auto-rows-[22rem] grid-cols-3",
+          //"grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10",
           className
         )}
       >
         {items.map((item, idx) => (
-          <Link
+            <Link
             href={item?.link}
             key={item?.link}
-            className="relative group  block p-2 h-full w-full"
+            className={cn("relative p-4 col-span-3", item.classNameLink)}
             onMouseEnter={() => setHoveredIndex(idx)}
             onMouseLeave={() => setHoveredIndex(null)}
-          >
+            >
             <AnimatePresence>
               {hoveredIndex === idx && (
-                <motion.span
-                  className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block  rounded-3xl"
-                  layoutId="hoverBackground"
-                  initial={{ opacity: 0 }}
-                  animate={{
-                    opacity: 1,
-                    transition: { duration: 0.15 },
-                  }}
-                  exit={{
-                    opacity: 0,
-                    transition: { duration: 0.15, delay: 0.2 },
-                  }}
-                />
+              <motion.span
+                className="absolute inset-0 h-24 w-full h-full bg-agatmediumpink/[0.1] dark:agatmediumpink/[0.2] block  rounded-3xl"
+                layoutId="hoverBackground"
+                initial={{ opacity: 0 }}
+                animate={{
+                opacity: 1,
+                transition: { duration: 0.15 },
+                }}
+                exit={{
+                opacity: 0,
+                transition: { duration: 0.15, delay: 0.2 },
+                }}
+              />
               )}
             </AnimatePresence>
             <BentoCard
               name={item.title}
-              className=""
-              background={<div></div>}
-              Icon={() => <div></div>}
+              className='h-full'
+              background={item.background}
               description={item.description}
               href={item.link}
-              cta="Learn More"
             />
-          </Link>
+            </Link>
         ))}
       </div>
     );

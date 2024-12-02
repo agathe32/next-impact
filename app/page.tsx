@@ -1,14 +1,15 @@
 // Craft Imports
 import { Section, Container } from "@/components/craft";
-import { BentoCard, BentoGrid } from "@/components/bento";
+import { BentoCard, BentoGrid, HoverEffectBento } from "@/components/bento";
 import Balancer from "react-wrap-balancer";
 
 // Components
 import Link from "next/link";
+import Image from "next/image";
 
 // Icons
 import { File, Pen, Tag, Boxes, User, Folder } from "lucide-react";
-import { HoverEffect } from "@/components/ui/card-hover-effect";
+// import { HoverEffect } from "@/components/ui/card-hover-effect";
 
 // This page is using the craft.tsx component and design system
 export default function Home() {
@@ -34,38 +35,53 @@ const ExampleJsx = () => {
         </Balancer>
       </h1>
 
-      <BentoGrid className="lg:grid-rows-2">
-          <BentoCard name="string" className="col-span-3 lg:col-span-1" background="ReactNode" Icon="any" description="" href="string" cta="string" />
-          <BentoCard name="string" className="col-span-3 lg:col-span-2" background="ReactNode" Icon="any" description="" href="string" cta="string" />
-          <BentoCard name="string" className="col-span-3 lg:col-span-1" background="ReactNode" Icon="any" description="" href="string" cta="string" />
-          <BentoCard name="string" className="col-span-3 lg:col-span-1" background="ReactNode" Icon="any" description="" href="string" cta="string" />
-          <BentoCard name="string" className="col-span-3 lg:col-span-1" background="ReactNode" Icon="any" description="" href="string" cta="string" />
-
-      </BentoGrid>
-
-
-
-
-
-
-
-
-      <HoverEffect
+      <HoverEffectBento
         items={[
           {
             title: "Get Started",
             description:
               "Learn how to use this starter and build your WordPress site with Next.js.",
             link: "https://agat.dev",
+            background: <div>Background</div>,
+            classNameLink: "lg:col-span-1",
           },
           {
             title: "Documentation",
             description:
               "Learn how to use the components and features of this starter.",
             link: "https://agat.dev",
+            background: <div>Background</div>,
+            classNameLink: "lg:col-span-2",
+          },
+          {
+            title: "Get Started",
+            description:
+              "Learn how to use this starter and build your WordPress site with Next.js.",
+            link: "https://agat.dev",
+            background: <div>Background</div>,
+            classNameLink: "lg:col-span-1",
+          },
+          {
+            title: "Documentation",
+            description:
+              "Learn how to use the components and features of this starter.",
+            link: "https://agat.dev",
+            background: <div>Background</div>,
+            classNameLink: "lg:col-span-1",
+          },
+          {
+            title: "Documentation",
+            description:
+              "Learn how to use the components and features of this starter.",
+            link: "https://agat.dev",
+            background: <div>Background</div>,
+            classNameLink: "lg:col-span-1",
           },
       ]}
       />
+
+
+
       <p>
         This is <a href="https://github.com/9d8dev/next-wp">next-wp</a>, created
         as a way to build WordPress sites with Next.js at rapid speed. This
@@ -147,3 +163,4 @@ const ExampleJsx = () => {
     </article>
   );
 };
+
