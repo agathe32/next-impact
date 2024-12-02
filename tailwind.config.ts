@@ -12,7 +12,7 @@ const config = {
   prefix: "",
   theme: {
   	container: {
-  		center: 'true',
+  		center: true,
   		padding: '2rem',
   		screens: {
   			'2xl': '1400px'
@@ -23,7 +23,12 @@ const config = {
   			sans: ["var(--font-sans)", ...fontFamily.sans]
   		},
   		colors: {
-  			border: 'hsl(var(--border))',
+			agatlightpink: '#F2798F',
+			agatmediumpink: '#F2385A',
+			agatdarkpink: '#BF1B39',
+			agatlightgrey: '#F2F2F2',
+			agatblack: '#0D0D0D',
+			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
   			background: 'hsl(var(--background))',

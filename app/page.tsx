@@ -1,5 +1,6 @@
 // Craft Imports
 import { Section, Container } from "@/components/craft";
+import { BentoCard, BentoGrid } from "@/components/bento";
 import Balancer from "react-wrap-balancer";
 
 // Components
@@ -7,6 +8,7 @@ import Link from "next/link";
 
 // Icons
 import { File, Pen, Tag, Boxes, User, Folder } from "lucide-react";
+import { HoverEffect } from "@/components/ui/card-hover-effect";
 
 // This page is using the craft.tsx component and design system
 export default function Home() {
@@ -21,6 +23,8 @@ export default function Home() {
 
 // This is just some example JS to demonstrate automatic styling from brijr/craft
 const ExampleJsx = () => {
+
+
   return (
     <article className="prose-m-none">
       <h1>
@@ -29,17 +33,39 @@ const ExampleJsx = () => {
           <a href="https://9d8.dev">9d8</a>.
         </Balancer>
       </h1>
-      {/* Vercel Clone Starter */}
-      <a
-        className="h-16 block"
-        href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2F9d8dev%2Fnext-wp&env=WORDPRESS_URL,WORDPRESS_HOSTNAME&envDescription=Add%20WordPress%20URL%20with%20Rest%20API%20enabled%20(ie.%20https%3A%2F%2Fwp.example.com)%20abd%20the%20hostname%20for%20Image%20rendering%20in%20Next%20JS%20(ie.%20wp.example.com)&project-name=next-wp&repository-name=next-wp&demo-title=Next%20JS%20and%20WordPress%20Starter&demo-url=https%3A%2F%2Fwp.9d8.dev">
-        {/* eslint-disable-next-line */}
-        <img
-          className="not-prose my-4"
-          src="https://vercel.com/button"
-          alt="Deploy with Vercel"
-        />
-      </a>
+
+      <BentoGrid className="lg:grid-rows-2">
+          <BentoCard name="string" className="col-span-3 lg:col-span-1" background="ReactNode" Icon="any" description="" href="string" cta="string" />
+          <BentoCard name="string" className="col-span-3 lg:col-span-2" background="ReactNode" Icon="any" description="" href="string" cta="string" />
+          <BentoCard name="string" className="col-span-3 lg:col-span-1" background="ReactNode" Icon="any" description="" href="string" cta="string" />
+          <BentoCard name="string" className="col-span-3 lg:col-span-1" background="ReactNode" Icon="any" description="" href="string" cta="string" />
+          <BentoCard name="string" className="col-span-3 lg:col-span-1" background="ReactNode" Icon="any" description="" href="string" cta="string" />
+
+      </BentoGrid>
+
+
+
+
+
+
+
+
+      <HoverEffect
+        items={[
+          {
+            title: "Get Started",
+            description:
+              "Learn how to use this starter and build your WordPress site with Next.js.",
+            link: "https://agat.dev",
+          },
+          {
+            title: "Documentation",
+            description:
+              "Learn how to use the components and features of this starter.",
+            link: "https://agat.dev",
+          },
+      ]}
+      />
       <p>
         This is <a href="https://github.com/9d8dev/next-wp">next-wp</a>, created
         as a way to build WordPress sites with Next.js at rapid speed. This
@@ -90,8 +116,9 @@ const ExampleJsx = () => {
           <Tag size={32} />
           <span>
             Projets{" "}
-            <span className="block text-sm text-muted-foreground"></span>
-            Projects from agat.dev 
+              <span className="block text-sm text-muted-foreground">
+              Projects from agat.dev 
+              </span>
             </span>
         </Link>
         <Link

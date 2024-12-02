@@ -5,7 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 import "./globals.css";
 
-import { BackgroundDots } from "@/components/dotbg";
+import { DotBg } from "@/components/dotbg";
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "@/components/nav/mobile-nav";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
@@ -47,14 +47,15 @@ export default function RootLayout({
       <body
         className={cn("min-h-screen font-sans antialiased", fontSans.variable)}
       >
-        <BackgroundDots />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
+          
           <Nav />
+          <DotBg/>
           <Main>{children}</Main>
           <Footer />
         </ThemeProvider>
