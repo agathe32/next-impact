@@ -1,14 +1,16 @@
 // Craft Imports
 import { Section, Container } from "@/components/craft";
-import { BentoCard, BentoGrid, HoverEffectBento } from "@/components/bento";
-import Balancer from "react-wrap-balancer";
+import { HoverEffectBento } from "@/components/bento";
+//import Balancer from "react-wrap-balancer";
 
 // Components
 import Link from "next/link";
 import Image from "next/image";
 
+
 // Icons
 import { File, Pen, Tag, Boxes, User, Folder } from "lucide-react";
+import { GradualSpacing } from "@/components/ui/animated-text";
 // import { HoverEffect } from "@/components/ui/card-hover-effect";
 
 // This page is using the craft.tsx component and design system
@@ -29,10 +31,7 @@ const ExampleJsx = () => {
   return (
     <article className="prose-m-none">
       <h1>
-        <Balancer>
-          Hello World, welcome to the Next.js and WordPress Starter by{" "}
-          <a href="https://9d8.dev">9d8</a>.
-        </Balancer>
+        <GradualSpacing/>
       </h1>
 
       <HoverEffectBento
